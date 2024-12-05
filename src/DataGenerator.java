@@ -8,14 +8,14 @@ public class DataGenerator {
         String namelist []={"Abel","Ada","Adolf","Agapit","Doris","Dorota","Drogomir","Eliasz","Elmira","Sara","Serafin","Sobiesław"};
         String surnamelist []={"Kowalski","Nowak", "Wiśniewski", "Wójcik", "Kowalczyk", "Kamiński", "Lewandowski", "Szczęsny", "Szymański", "Dąbrowski", "Woźniak", "Mazur"};
         String joblist[]={"Lekarz", "Nauczyciel", "Inżynier", "Prawnik", "Mechanik", "Programista", "Architekt", "Kucharz", "Kierowca", "Fryzjer", "Policjant", "Sprzedawca"};
-        String genderlist []={"Kobieta","Mężczyzna","Osoba Niebinarna","genderfluid"};
         String name= namelist[random.nextInt(namelist.length)];
         String surname= surnamelist [random.nextInt(surnamelist.length)];
-        String sex= genderlist [random.nextInt(genderlist.length)];
-        int bornYear= random.nextInt(1950,2025);
+        String sex = (random.nextInt(1, 3) == 1) ? "Mężczyzna" : "Kobieta";
+        int bornYear= random.nextInt(1960,2002);
         String job=joblist [random.nextInt(joblist.length)];;
         Company company=generateCompany();
         double salary= random.nextDouble(3000,20000);
+        salary = Math.round(salary * 100.0) / 100.0;
         Address address=generateAddress();
 
         return new Person(name,surname,sex,bornYear,job,company,salary,address);
